@@ -4,9 +4,16 @@ import { MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm } from "react-hook-form";
 
 function Contact() {
+  interface Form {
+    name: string;
+    subject: string;
+    body: any;
+    message: any;
+    email: string;
+  }
   const { register, handleSubmit } = useForm();
-  const onSubmit = (formData: any) => {
-    window.location.href = `mailto:baseek8@gmail.com?subject=${formData.subject}&body=${formData.body},${formData.message},(${formData.email})`;
+  const onSubmit = (formData:any) => {
+    window.location.href = `mailto:abdulbaseerniz1@gmail.com?&subject=${formData.subject},${formData.name}&body=${formData.body},${formData.message},(${formData.email})`;
   };
   return (
     <div className="h-screen flex relative flex-col text-center md:text-left md:text-row max-w-7xl justify-evenly mx-auto items-center">
@@ -37,7 +44,7 @@ function Contact() {
             <input
               {...register("name")}
               placeholder="Name"
-              type="text"
+              type="name"
               className="outline-none bg-slate-400/10 rounded-sm w-80  px-6 py-4  text-gray-500 placeholder-gray-500"
             />
             <input
@@ -52,7 +59,7 @@ function Contact() {
             placeholder="Subject"
             {...register("subject")}
             className="outline-none bg-slate-400/10 rounded-sm w-80   px-6 py-4  text-gray-500 placeholder-gray-500"
-            type="text"
+            type="subject"
           />
 
           <textarea
