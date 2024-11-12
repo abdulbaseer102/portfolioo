@@ -13,7 +13,7 @@ function Contact() {
   }
   const { register, handleSubmit } = useForm();
   const onSubmit = (formData:any) => {
-    window.location.href = `mailto:abdulbaseerniz1@gmail.com?&subject=${formData.subject},${formData.name}&body=${formData.body},${formData.message},(${formData.email})`;
+    window.location.href = `mailto:abdulbaseerniz1@gmail.com?&subject=${formData.subject}&body=${formData.body},${formData.name},${formData.message},(${formData.email})`;
   };
   return (
     <div className="h-screen flex relative flex-col text-center md:text-left md:text-row max-w-7xl justify-evenly mx-auto items-center">

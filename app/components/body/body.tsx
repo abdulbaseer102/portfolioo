@@ -10,15 +10,18 @@ function Body() {
     loop: true,
     delaySpeed: 2000,
   });
-  const container = useRef(null);
+  const container = useRef<HTMLElement | null>(null); // Specify the type here
+
   useEffect(() => {
-    lottie.loadAnimation({
-      container: container.current,
-      renderer: "svg",
-      loop: true,
-      autoplay: true,
-      animationData: animationData,
-    });
+    if (container.current) { // Ensure container.current is not null before using it
+      lottie.loadAnimation({
+        container: container.current,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+      });
+    }
   }, [animationData]);
   return (
     <section className=" container py-8 p-14">
@@ -52,7 +55,7 @@ function Body() {
           </div>
 
           <div className="md:w-1/2 z-auto pt-2 md:mt-0">
-            <div className="container" ref={container}></div>
+            <div className="container" ref={container.current}></div>
           </div>
         </div>
       </div>
